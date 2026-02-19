@@ -4,26 +4,34 @@ FastAPI backend for the Course Planner application.
 
 ## Setup
 
-1. Create a virtual environment:
+Run these commands from the repository root (`course-planner`):
+
+1. Create/activate the project virtual environment:
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
 2. Install dependencies:
 ```bash
-pip install -r requirements.txt
+pip install -r apps/api/requirements.txt
 ```
 
 ## Running the API
 
 ```bash
-python main.py
+python apps/api/main.py
 ```
 
 The API will be available at `http://localhost:8000`
 
 API documentation (Swagger UI) available at `http://localhost:8000/docs`
+
+## VS Code / Pylance fix
+
+If imports show as unresolved in VS Code, select the interpreter:
+- `.venv/bin/python` (macOS/Linux)
+- `.venv\Scripts\python.exe` (Windows)
 
 ## API Endpoints
 

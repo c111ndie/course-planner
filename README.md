@@ -22,20 +22,55 @@ A minimal full-stack web application for course planning.
 - Python (v3.8 or later)
 - npm or yarn
 
+If `npm` is not found, install Node.js once (npm is bundled with Node):
+
+```bash
+brew install node
+```
+
+## One-Time Setup
+
+Run once after cloning (or when dependencies change):
+
+```bash
+cd /Users/cindie06/Desktop/course-planner
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r apps/api/requirements.txt
+cd apps/web
+npm install
+```
+
+## Daily Start
+
+Run these each time you want to start the app:
+
+1. Start backend:
+```bash
+cd /Users/cindie06/Desktop/course-planner
+source .venv/bin/activate
+python apps/api/main.py
+```
+
+2. Start frontend (new terminal):
+```bash
+cd /Users/cindie06/Desktop/course-planner/apps/web
+npm run dev
+```
+
 ### Running the Backend (FastAPI)
 
-1. Navigate to the API directory:
+1. Navigate to the API directory from anywhere:
 ```bash
-cd apps/api
+cd "$(git rev-parse --show-toplevel)/apps/api"
 ```
 
-2. Create a virtual environment:
+2. Activate the existing root virtual environment:
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source ../../.venv/bin/activate  # On Windows (PowerShell): ..\..\.venv\Scripts\Activate.ps1
 ```
 
-3. Install dependencies:
+3. Install dependencies (only needed after changes):
 ```bash
 pip install -r requirements.txt
 ```
@@ -50,12 +85,12 @@ API documentation (Swagger UI) at `http://localhost:8000/docs`
 
 ### Running the Frontend (Next.js)
 
-1. Open a new terminal and navigate to the web directory:
+1. Open a new terminal and navigate to the web directory from anywhere:
 ```bash
-cd apps/web
+cd "$(git rev-parse --show-toplevel)/apps/web"
 ```
 
-2. Install dependencies:
+2. Install dependencies (first time only):
 ```bash
 npm install
 ```

@@ -13,8 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Course Planner",
+  title: "Planly",
   description: "Plan your academic courses by term",
+  icons: {
+    icon: "/planly-icon.png",
+    shortcut: "/planly-icon.png",
+    apple: "/planly-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -25,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
